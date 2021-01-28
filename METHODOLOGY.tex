@@ -1,0 +1,124 @@
+\section{Methodology}
+    
+    \frame{\sectionpage}
+    
+    \begin{frame}{Presentation of the econometric model}
+\par The model to be generated in this research is based on Ramon A. Castillo's analysis of changes in the macroeconomic environment, where he applies the study of the determinants of remittances and the effects of the sending and receiving or receiving countries.\par
+
+\textbf{Vector Autoregressive Model (VAR).}\par
+The VAR or also called multivariate models originate in the eighties with (Sims, 1980), which raises \textit{"the importance of the dynamic relationships of economic phenomena at the macroeconomic level, subsistence of structural models, where there is a simultaneity between economic variables"}.\par
+VAR models have proven to be useful in empirical research analysis, when there is evidence of simultaneity between a group of variables, and that their relationships are transmitted over a given period. In addition, "that one of the advantages of these models is that, by not imposing any restriction on the structural version of the model, specification errors are not incurred that may cause empirical work." (Pérez, 2008). A VAR model captures the dynamic interactions of a set of K time series variables.\par
+
+\textbf{Error Correction Model (VEC).}\par
+VEC models, unlike VARs, are characterized by containing cointegrated variables, that is:\par
+\textit{“Variables that have a long-term equilibrium relationship between them, in which the analysis has been refined, since it includes both the dynamics of adjustment of the variables in the short term, when an unexpected shock occurs that causes another to temporarily move away of its long-term equilibrium relationship, such as the reestablishment of the equilibrium relationship in the long term, the information it provides on the speed of adjustment towards such equilibrium is quite useful; therefore they provide more information than VARs”} (Eilyn and Torres, 2004).\par
+If the variables are stationary, it is possible to proceed with the estimation of a VAR model. On the other hand, if the variables are stationary in difference and have a cointegration relationship, then a specification problem is generated in the VAR model, and a VEC must be continued.\par
+
+\textbf{Stationarity and order of integration.}\par
+•	The first step in the analysis of the time series is to verify its stationarity. A time series is said to be stationary if it meets the following characteristics.\par
+•	Its mean is constant over time.\par
+•	Its variance is also constant over time.\par
+
+ \begin{equation}
+ var(Y_{t} = E[(Y_{t}-u_{y})^2]=	\sigma^2
+ \end{equation}
+ 
+•	The covariance of order k is not related to time and the distance between the observations is the same.\par
+
+  \begin{equation}
+ \gamma_{k}=E[(Y_{t}-u_{y})(Y_{t+k}-u_{y})]
+ \end{equation}
+ 
+This is due to the fact that if a time series does not satisfy the previous characteristics, it is non-stationary. When we speak of an integrated time series, it is a non-stationary series, so the order of integration is the number of times the series has to be differentiated to reach stationarity.\par
+When it is not necessary to obtain first differences for the stochastic process to be called zero-order integrated. A non-stationary series, it is necessary to differentiate it so that it is, if it only differs once and stationarity is reached, it is integrated of order one. In general, the order of integration I(d) suggests the number of times they had to apply for the process to be considered stationary.\par
+An integrated process I(d) is known as a process that has a unit root, in which differentiation is used to make it stationary. In order to have a formal certainty to define the order of integration of a variable, statistical tests are used to detect the presence of a unit root, which proves the existence of a unit root, such as the Augmented Dickey Fuller and Phillips- Perron.\par
+\end{frame}
+
+    \frame{\sectionpage}
+    \begin{frame}{Econometric technique to use}
+
+\textbf{Johansen Cointegration Test:}\par
+The peculiarity of this method is that it allows more than one cointegration relation in a system of variables. This test can be performed in two different approaches, with eigenvalues or with trace. When cointegration relationships are tested, the VEC model is estimated, the method of which is based on the Johansen methodology, and the steps to follow for said methodology are listed below.\par
+\begin{enumerate}
+\item Estimate a VAR in levels with the endogenous variables.
+\item The optimal number of lags is chosen in the estimation of the VAR. In this sense (Cuevas, 2010) asserts that \textit{“the length of the lag is decisive, because the behavior of the residuals and the empirical results are sensitive to the order of the model (number, of lags selected), as it can cause specification problems".} 
+\end{enumerate}
+\textbf{Information Criteria.}\par
+The most used criteria are:\par
+• \textbf{Akaike Information Criteria} (AIC):\par
+ \begin{equation}
+ AIC = Tln|S_{h}(p)|+2pn
+ \end{equation}
+• \textbf{Schwartz Information Criteria} (SIC):\par
+  \begin{equation}
+ SIC = Tln|S_{h}(p)|+(pn^2)lnT
+ \end{equation}
+• \textbf{Hannan-Quinn} (HQ):\par
+   \begin{equation}
+ HQ(n) = log\sigma^2_{u}(n)+\frac{2logT}{T}n
+ \end{equation}
+Where:\par
+p = number of lags\par
+n = number of equations\par
+T = number of observations\par
+\textbf{Diagnostic tests.}\par
+\begin{enumerate}
+\item Apply the tests to the residuals to the VAR model. After determining the optimal number of lags for the model, the next step is to run a series of diagnostic tests that determine that the model does not have statistical problems that invalidate the estimation results.\par
+\begin{enumerate}
+\item The autocorrelation in the residuals suggests that: \textit{“the model is a poor representation of the generated process and that some other representation can be found including variables, lags in the model, extending the time period or getting other data”} (Lutkepohl and Kratzig, 2004). The test most used to test autocorrelation is LM, whose null hypothesis (H0) to be tested is: no serial correlation in the lag of order p.\par
+\item. Another test that is essential to evaluate the diagnosis of the model is the absence of heteroscedasticity (non-constant variance) in the residuals. The hypotheses to be tested are\par 
+\begin{center}
+\textbf{H0}: The residuals are homoscedastic \par 
+\textbf{H1}: The residuals are heteroscedastic.\par
+\end{center}
+\item Another of the diagnostic tests for the verification of VAR processes refers to the normality of the waste, using the Jarque-Bera test. The hypotheses of this test are the following:\par
+
+\begin{equation}
+ H_{0} : E(u_{t}^s)^3 = 0 
+  \end{equation} 
+  \begin{equation}
+ H_{1} : E(u_{t}^s)^3 \neq 0
+ \end{equation} 
+
+The null hypothesis is rejected based on the value of the probability JB, given the level of significance with which one works, for example, with a significance level of 5 percent, the null hypothesis will not be rejected if the probability is higher than 0.05, therefore, there is a normal distribution in the residuals.\par
+\end{enumerate}
+\item At the selected VAR in levels, the cointegration test is applied (minus one to the optimal lag). The particularity of this method is that it allows more than one cointegration relationship in a system of variables. This test can be performed in two different approaches, with eigenvalues or with trace.\par
+\end{enumerate}
+\end{frame}
+
+    \frame{\sectionpage}
+    \begin{frame}{Description of the databases}
+The data to be used are focused on the period from January 1996 to December 2019 for the variables presented in the following section. In the same way, the dichotomous variables created for the structural changes that occurred over time are explained.\par
+First, the remittances sent are shown in their tiered series:\par
+As can be seen in the previous series, there is an accelerated rebound from the first quarter of 2003 until achieving a small stabilization, hence a decrease in the fourth quarter of 2009 to reach the acceleration that we have observed in recent years.  Second, the Gross Domestic Product of Mexico is shown in levels:\par
+	In the previous series, the upward trend can be observed from 1996 to 2009, where economic growth is affected by the world economic crisis of that year. The following is the Gross Domestic Product of the United States in levels:\par
+The trend is similar to that of Mexico's GDP, but in a smoother way, however, the structural change is noticeable due to the economic crisis of 2009.  Finally, it is shown at the Real Exchange Rate between the Mexican Peso (MXN) and the United States Dollar (USD) in levels:\par
+\end{frame}
+
+    \frame{\sectionpage}
+    \begin{frame}{Definition of the variables}
+In the first place, as the dependent variable, Family Remittances were chosen in their entirety from the first quarter of 1996 to the fourth quarter of 2019. Said database is measured in millions of dollars and was obtained from the Economic Information System of the Banco de México.\par
+Second, as an independent variable that represents the recipient country of remittance income, the Gross Domestic Product of Mexico was chosen. Said database is based on 2013 at constant prices and measured in millions of pesos. The data series was obtained from the Instituto Nacional de Estadística y Geografía.\par
+Third, as an independent variable that represents the country that issued the remittances, the Gross Domestic Product of the United States was chosen. It is measured in millions of dollars at constant prices. The series was obtained from the Bureau of Economic Analysis. Finally, the Real Exchange Rate Index was taken as the result of the quotient between the exchange rate variations and the Price and Quotation Index with respect to hundred eleven countries. This database was obtained from the Economic Information System of Banco de México.\par
+As mentioned in previous sections, the period ranges from the first quarter of 1996 to the fourth quarter of 2019\footnote{Accumulating a total of 96 observations for each variable.} . At the time of analyzing the data series, eight dichotomous variables were elaborated that were taken as exogenous to control the structural changes that occurred over time. \par
+In the case of Remittances, the following variables were elaborated:\par
+\begin{itemize}
+\item \textbf{DREMESASMI:} In the first quarter of 2003, as it was the quarter where the expansion of the domestic market in the country began and there was a decrease in inflation.\par
+\item \textbf{DREMESASREC:} In the fourth quarter of 2009 due to the global economic and financial recession that spanned from 2008 to 2009.\par
+
+ Within the Mexican GDP variable, the following variable was elaborated:\par
+ 
+\item	\textbf{DPIBMEXREC:} In the first quarter of 2009, due to the global economic and financial recession that spanned from 2008 to 2009.\par
+
+ Within the United States GDP variable, the following variable was elaborated:\par
+
+\item \textbf{DPIBEUAREC:} In the second quarter of 2009, due to the global economic and financial recession that spanned from 2008 to 2009.\par
+
+And within the Real Exchange Rate variable, the following variables were elaborated:\par
+
+\item \textbf{DTCREALIG:} In the second quarter of 2002, due to the increase in imports by farmers in the United States and the increase in prices.\par
+\item \textbf{DTCREALEST:} In the fourth quarter of 2004, since there was a slight stabilization from that year until 2007.\par
+\item \textbf{DTCREALFD:} In the fourth quarter of 2014 due to the strengthening of the US dollar and there was an impact on emerging markets.\par
+\item \textbf{DTCREALPP:} In the fourth quarter of 2016, due to the adjustment of oil prices.
+ \end{itemize}
+\end{frame}

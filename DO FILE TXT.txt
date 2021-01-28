@@ -1,0 +1,378 @@
+**///////////////////////////////////TRABAJO FINAL ECONOMIA FINANCIERA - ARCHIVO DO FILE**
+
+**//////////////////ANALISIS DE LAS SERIES*
+*Generación de la variable tiempo*
+rename time tiempo
+gen time=tq(1996q1)+_n-1
+format %tqCY-q time
+tsset time
+gen obs=_n+1
+
+*Se tomaron las siguientes series basadas en el trabajo de Ramon Castillo titulado "Remesas: un analisis de cointegracion* 
+*para el caso de Mexico"* 
+*como variable dependiente se tomaron a las "Remesas captadas de Estados Unidos a México", como variables independientes* 
+*se tomaron al "PIB de Mexico para medir el impacto en los ingresos del pais receptor", al "PIB de Estados Unidos, para medir* 
+*el impacto de los ingresos en el pais emisor" y "el tipo de cambio real, donde se analiza la devaluación del peso y sus*
+*consecuencias en el mayor o menor envio de remesas al pais*
+*Dichos datos abarcan desde enero de 1996 a diciembre de 2019 con una periodicidad trimestral*
+
+*Graficas de cada serie*
+twoway (tsline remesas, lcolor(black)), title("Remittances") subtitle("Series in tiers from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+twoway (tsline pibmex, lcolor(black)), title("Gross Domestic Product (GDP) of México") subtitle("Series in tiers from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from INEGI.")
+twoway (tsline pibeua, lcolor(black)), title("Gross Domestic Product (GDP) of United States of America") subtitle("Series in tiers from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BEA.")
+twoway (tsline tcreal, lcolor(black)), title("Real Exchange Rate USD-MXN") subtitle("Series in tiers from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+
+line remesas time, saving(remesas.gph)
+line pibmex time, saving(pibmex.gph)
+line pibeua time, saving(pibeua.gph)
+line tcreal time, saving(tcreal.gph)
+gr combine remesas.gph pibmex.gph pibeua.gph tcreal.gph, title("Combination of study variables") subtitle("Series in tiers on a quarterly basis from January 1996 to December 2019") scheme(s1color) note("Own elaboration. Data obtained from BANXICO, INEGI and BEA.")
+
+*Elaboración de logaritmos de cada serie*
+gen lremesas=log(remesas)
+gen lpibmex=log(pibmex)
+gen lpibeua=log(pibeua)
+gen ltcreal=log(tcreal)
+
+*Gráfica de cada serie en logaritmos*
+twoway (tsline lremesas, lcolor(black)), title("Remittances") subtitle("Logarithmic series. From January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+twoway (tsline lpibmex, lcolor(black)), title("Gross Domestic Product (GDP) of México") subtitle("Logarithmic series. From January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from INEGI.")
+twoway (tsline lpibeua, lcolor(black)), title("Gross Domestic Product (GDP) of United States of America") subtitle("Logarithmic series. From January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BEA.")
+twoway (tsline ltcreal, lcolor(black)), title("Real Exchange Rate USD-MXN") subtitle("Logarithmic series. From January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+
+line lremesas time, saving(lremesas.gph)
+line lpibmex time, saving(lpibmex.gph)
+line lpibeua time, saving(lpibeua.gph)
+line ltcreal time, saving(ltcreal.gph)
+gr combine lremesas.gph lpibmex.gph lpibeua.gph ltcreal.gph, title("Combination of study variables") subtitle("Logarithmic series on a quarterly basis from January 1996 to December 2019") scheme(s1color) note("Own elaboration. Data obtained from BANXICO, INEGI and BEA.")
+
+*Generación de variables dicotómicas*
+gen date = quarter(dofq(time))
+gen Q1 = 0
+gen Q2 = 0
+gen Q3 = 0
+gen Q4 = 0
+replace Q1 = 1 if date ==1
+replace Q2 = 1 if date ==2
+replace Q3 = 1 if date ==3
+replace Q4 = 1 if date ==4
+
+*///////////DESESTACIONALIZACION DE LAS SERIES*
+*Remesas*
+reg lremesas Q1 Q2 Q3 Q4 ,noconstant
+predict estacionalidad_lremesas
+gen lremesas_d = lremesas - estacionalidad_lremesas
+
+*PIB Mexico*
+reg lpibmex Q1 Q2 Q3 Q4,noconstant
+predict estacionalidad_lpibmex
+gen lpibmex_d = lpibmex - estacionalidad_lpibmex
+
+*PIB EUA*
+reg lpibeua Q1 Q2 Q3 Q4 ,noconstant
+predict estacionalidad_lpibeua
+gen lpibeua_d = lpibeua - estacionalidad_lpibeua
+
+*TC Real*
+reg ltcreal Q1 Q2 Q3 Q4 ,noconstant
+predict estacionalidad_ltcreal
+gen ltcreal_d = ltcreal - estacionalidad_ltcreal
+
+*/////////GRAFICAS DE LAS SERIES DESESTACIONALIZADAS*
+twoway (tsline lremesas_d, lcolor(black)), title("Remittances") subtitle("Logarithmic series seasonally adjusted on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+twoway (tsline lpibmex_d, lcolor(black)), title("Gross Domestic Product (GDP) of México") subtitle("Logarithmic series seasonally adjusted on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from INEGI.")
+twoway (tsline lpibeua_d, lcolor(black)), title("Gross Domestic Product (GDP) of United States of America") subtitle("Logarithmic series seasonally adjusted on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BEA.")
+twoway (tsline ltcreal_d, lcolor(black)), title("Real Exchange Rate USD-MXN") subtitle("Logarithmic series seasonally adjusted on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+
+line lremesas_d time, saving(lremesas_d.gph)
+line lpibmex_d time, saving(lpibmex_d.gph)
+line lpibeua_d time, saving(lpibeua_d.gph)
+line ltcreal_d time, saving(ltcreal_d.gph)
+gr combine lremesas_d.gph lpibmex_d.gph lpibeua_d.gph ltcreal_d.gph, title("Combination of study variables") subtitle("Logarithmic series seasonally adjusted on a quarterly basis from January 1996 to December 2019") scheme(s1color) note("Own elaboration. Data obtained from BANXICO, INEGI and BEA.")
+
+
+*////////PRUEBA DE RAIZ UNITARIA*
+*Ho: Raiz Unitaria
+*H1: Estacionaria
+*Valor Estadistico < Valor Critico para Rechazar Ho
+
+
+*//////REMESAS***///////////////
+dfuller lremesas_d, trend
+dfuller lremesas_d, drift
+
+zandrews lremesas_d, break(both)
+zandrews lremesas_d, lagmethod(BIC)
+
+*NOTA: La serie REMESAS con el test de Raiz Unitaria DFULLER agregando la tendencia no se rechaza Ho, sin embargo, en su forma de cambio de nivel no se rechaza Ho al 1%*
+*NOTA: La serie REMESAS con el test de ZANDREWS con un cambio en el intercepto y tendencia no se rechaza Ho y en su forma minimizar rezagos no se rechaza Ho.*
+
+*//////PIB DE MEXICO***///////////////*
+dfuller lpibmex_d, trend
+dfuller lpibmex_d, drift
+
+zandrews lpibmex_d, break(both)
+zandrews lpibmex_d, lagmethod(BIC)
+
+*NOTA: La serie PIB DE MEXICO con el test de Raiz Unitaria DFULLER agregando la tendencia no se rechaza H0 al 1% y en su forma de cambio de nivel no se rechaza Ho al 5%*
+*NOTA: La serie PIB DE MEXICO con el test de ZANDREWS con un cambio en el intercepto y tendencia no se rechaza Ho y en su forma minimizar rezagos no se rechaza Ho al 5%*
+
+*//////PIB DE ESTADOS UNIDOS***///////////////*
+dfuller lpibeua_d, trend
+dfuller lpibeua_d, drift
+
+zandrews lpibeua_d, break(both)
+zandrews lpibeua_d, lagmethod(BIC)
+
+*NOTA: La serie PIB DE ESTADOS UNIDOS con el test de Raiz Unitaria DFULLER agregando la tendencia no se rechaza H0 y en su forma de cambio de nivel no se rechaza Ho*
+*NOTA: La serie PIB DE ESTADOS UNIDOS con el test de ZANDREWS con un cambio en el intercepto y tendencia no se rechaza Ho al 5% y en su forma minimizar rezagos se rechaza Ho*
+
+*//////TIPO DE CAMBIO REAL***///////////////*
+dfuller ltcreal_d, trend
+dfuller ltcreal_d, drift
+
+zandrews ltcreal_d, break(both)
+zandrews ltcreal_d, lagmethod(BIC)
+
+*NOTA: La serie TIPO DE CAMBIO REAL con el test de Raiz Unitaria DFULLER agregando la tendencia no se rechaza H0 al 1% y en su forma de cambio de nivel se rechaza Ho*
+*NOTA: La serie TIPO DE CAMBIO REAL con el test de ZANDREWS con un cambio en el intercepto y tendencia no se rechaza Ho y en su forma minimizar rezagos no se rechaza Ho*
+
+*LAS SERIES SON NO ESTACIONARIAS POR NO RECHAZAR H0 EN LOS CASOS ANTERIORES*
+****UNICAMENTE MEDIANTE EL METODO DFULLER SE RECHAZA H0 EN LA SERIE DEL TIPO DE CAMBIO REAL EN EL CAMBIO EN NIVELES Y CON EL METODO* 
+*ZANDREWS EL PIB DE ESTADOS UNIDOS RECHAZA H0 EN LA FORMA DE MINIMIZAR REZAGOS*
+
+*SE PRESENTA UN CAMBIO ESTRUCTURAL EN LAS SERIES ASI QUE SE REALIZARON LAS SIGUIENTES VARIABLES DICOTOMICAS PARA*
+*SER AÑADIDAS AL MODELO VAR*
+
+*EN EL CASO DE LAS REMESAS SE HICIERON 2 VARIABLES DICOTOMICAS: D_REMESAS_MI en el primer trimestre del 2003 por ser el trimestre donde comenzó la expansión 
+*del mercado interno en el país y hubo una disminución de la inflación y la D_REMESAS_REC en el cuarto trimestre del 2009 por la recesión del 2008-2009 en 
+*el mundo*
+
+*EN EL CASO DEL PIB DE MEXICO SE HIZO 1 VARIABLE DICOTOMICA: D_PIBMEX_REC en el primer trimestre del 2009 por la recesión del 2008-2009 en 
+*el mundo*
+
+*EN EL CASO DEL PIB DE ESTADOS UNIDOS SE HIZO 1 VARIABLE DICOTOMICA: D_PIBEUA_REC en el segundo trimestre del 2009 por la recesión del 2008-2009 en 
+*el mundo*
+
+*EN EL CASO DEL TIPO DE CAMBIO REAL SE HICIERON 4 VARIABLES DICOTOMICAS: D_TCREAL_IG en el segundo trimestre del 2002 por el aumento de las importaciones de los
+*agricultores en Estados Unidos y el aumento de precios, D_TCREAL_EST en el cuarto trimestre del 2004 ya que existió una estabilización desde ese año y hasta el
+*2007, D_TCREAL_FD en el cuarto trimestre del 2014 debido al  fortalecimiento del dolar para ese año y su afectación en mercados emergentes, y por último, 
+*D_TCREAL_PP en el cuarto trimestre del 2016 debido al ajuste de los precios del petróleo
+
+*DE IGUAL FORMA SE PROCEDIÓ A DIFERENCIAR LAS SERIES PARA TENER TENER EL CRECIMIENTO DE CADA VARIABLE*
+
+*REMESAS*
+gen dlremesas = d.lremesas
+
+*PIB DE MEXICO*
+gen dlpibmex = d.lpibmex
+
+*PIB DE ESTADOS UNIDOS*
+gen dlpibeua = d.lpibeua
+
+*TIPO DE CAMBIO REAL*
+gen dltcreal = d.ltcreal
+
+*/////////GRAFICAS DE LAS SERIES DIFERENCIADAS*
+
+twoway (tsline dlremesas, lcolor(black)), title("Remittances") subtitle("Differentiated series on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+twoway (tsline dlpibmex, lcolor(black)), title("Gross Domestic Product (GDP) of México") subtitle("Differentiated series on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from INEGI.")
+twoway (tsline dlpibeua, lcolor(black)), title("Gross Domestic Product (GDP) of United States of America") subtitle("Differentiated series on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BEA.")
+twoway (tsline dltcreal, lcolor(black)), title("Real Exchange Rate USD-MXN") subtitle("Differentiated series on a quarterly basis from January 1996 to December 2019") legend(on) scheme(s1color) note("Own elaboration. Data obtained from BANXICO.")
+
+line dlremesas time, saving(dlremesas.gph)
+line dlpibmex time, saving(dlpibmex.gph)
+line dlpibeua time, saving(dlpibeua.gph)
+line dltcreal time, saving(dltcreal.gph)
+gr combine dlremesas.gph dlpibmex.gph dlpibeua.gph dltcreal.gph, title("Combination of study variables") subtitle("Differentiated series on a quarterly basis from January 1996 to December 2019") scheme(s1color) note("Own elaboration. Data obtained from BANXICO, INEGI and BEA.")
+
+*////////PRUEBA DE RAIZ UNITARIA*
+*Ho: Raiz Unitaria*
+*H1: Estacionaria*
+*Valor Estadistico < Valor Critico para Rechazar Ho*
+
+
+*//////REMESAS***///////////////*
+dfuller dlremesas, regress
+
+zandrews dlremesas, lagmethod(BIC)
+
+*NOTA: La serie IGAE con el test de Raiz Unitaria DFULLER en su forma de cambio de nivel rechaza Ho*
+*NOTA: La serie IGAE con el test de ZANDREWS en su forma minimizar rezagos rechaza Ho al 5%*
+
+*//////PIB DE MEXICO***///////////////*
+dfuller dlpibmex, regress
+
+zandrews dlpibmex, lagmethod(BIC)
+
+*NOTA: La serie IGAE con el test de Raiz Unitaria DFULLER en su forma de cambio de nivel rechaza Ho*
+*NOTA: La serie IGAE con el test de ZANDREWS en su forma minimizar rezagos rechaza Ho al 10%.*
+
+*//////PIB DE ESTADOS UNIDOS***///////////////*
+dfuller dlpibeua, regress
+
+zandrews dlpibeua, lagmethod(BIC)
+
+*NOTA: La serie IGAE con el test de Raiz Unitaria DFULLER en su forma de cambio de nivel rechaza Ho*
+*NOTA: La serie IGAE con el test de ZANDREWS en su forma minimizar rezagos rechaza Ho.*
+
+*//////TIPO DE CAMBIO REAL***///////////////*
+dfuller dltcreal, regress
+
+zandrews dltcreal, lagmethod(BIC)
+
+*NOTA: La serie IGAE con el test de Raiz Unitaria DFULLER en su forma de cambio de nivel rechaza Ho*
+*NOTA: La serie IGAE con el test de ZANDREWS en su forma minimizar rezagos rechaza Ho.*
+
+*GENERACION DE LAS VARIABLES DICOTOMICAS QUE SE TOMARAN COMO EXOGENAS EN EL MODELO VAR*
+
+*PRIMER VARIABLE DICOTOMICA: D_REMESAS_MI*
+gen D_REMESAS_MI = 0
+replace D_REMESAS_MI = 1 if obs ==30
+
+*SEGUNDA VARIABLE DICOTOMICA: D_REMESAS_REC*
+gen D_REMESAS_REC = 0
+replace D_REMESAS_REC = 1 if obs ==57
+
+*TERCER VARIABLE DICOTOMICA: D_PIBMEX_REC*
+gen D_PIBMEX_REC = 0
+replace D_PIBMEX_REC = 1 if obs ==54
+
+*CUARTA VARIABLE DICOTOMICA: D_PIBEUA_REC*
+gen D_PIBEUA_REC = 0
+replace D_PIBEUA_REC = 1 if obs ==55
+
+*QUINTA VARIABLE DICOTOMICA: D_TCREAL_IG*
+gen D_TCREAL_IG  = 0
+replace D_TCREAL_IG  = 1 if obs ==27
+
+*SEXTA VARIABLE DICOTOMICA: D_TCREAL_EST*
+gen D_TCREAL_EST = 0
+replace D_TCREAL_EST  = 1 if obs ==37
+
+*SEPTIMA VARIABLE DICOTOMICA: D_TCREAL_FD*
+gen D_TCREAL_FD = 0
+replace D_TCREAL_FD  = 1 if obs ==77
+
+*OCTAVA VARIABLE DICOTOMICA: D_TCREAL_PP*
+gen D_TCREAL_PP = 0
+replace D_TCREAL_PP  = 1 if obs ==85
+
+*YA QUE LAS VARIABLES SON INTEGRADAS DE ORDEN 1 SE PROCEDERÁ A HACER UN ANALISIS DE COINTEGRACION*
+
+*///////////////////////Determinación de los rezagos optimos///////////////////////*
+
+varsoc dlremesas dlpibmex dlpibeua dltcreal, exog(D_REMESAS_MI D_REMESAS_REC D_PIBMEX_REC D_PIBEUA_REC D_TCREAL_IG D_TCREAL_EST D_TCREAL_FD D_TCREAL_PP) maxlag(12)
+
+*SEGUN LOS CRITERIOS DE INFORMACION SE DETERMINAN 3 MODELOS: CON 1, 4 Y 12 REZAGOS*
+
+***********************MODELO 1 con 1 Rezago**********************
+
+*Ho: El numero de ecuaciones de cointegracion es r* 
+*Ha: El numero de ecuaciones de cointegracion es r+1*
+*Se rechaza Ho Stadistico > Valor crítico*
+
+vecrank dlremesas dlpibmex dlpibeua dltcreal, lags(1) max ic levela
+
+*NOTA: La prueba de conintegracion de Johansen acepta Ho cuando rank = 2 al 1%*
+*NOTA: Max statistic se acepta Ho cuando rank = 1 al 5%*
+*NOTA: En los Criterios de Informacion señalan 3 ecuaciones de cointegracion*
+
+*Modelo de Correción de Errores*
+
+vec dlremesas dlpibmex dlpibeua dltcreal, r(3) lags(1)
+
+*Multiplicador de Lagrange de Autocorrelaciones de los Residuales*
+
+*Si Prob > 0.05 se rechaza Ho
+veclmar, mlag(1)
+
+*Prueba de normalidad de los errores*
+
+*Ho: Distribucion Normal
+*Si Prob > 0.05 se rechaza Ho
+vecnorm, j
+
+predict res1_mod1, r eq(#1)
+
+tsline res1_mod1
+
+hist res1_mod1, norm
+
+***********************MODELO 2 con 4 Rezagos**********************
+
+*Ho: El numero de ecuaciones de cointegracion es r* 
+*Ha: El numero de ecuaciones de cointegracion es r+1*
+*Se rechaza Ho Stadistico > Valor crítico*
+
+vecrank dlremesas dlpibmex dlpibeua dltcreal, lags(4) max ic levela
+
+*NOTA: La prueba de conintegracion de Johansen acepta Ho cuando rank = 1 al 1% y 5%*
+*NOTA: Max statistic se acepta Ho cuando rank = 1 al 1%*
+*NOTA: En los Criterios de Informacion señala 3 ecuaciones de cointegracion*
+
+*Modelo de Correción de Errores*
+
+vec dlremesas dlpibmex dlpibeua dltcreal, r(3) lags(4)
+
+*Multiplicador de Lagrange de Autocorrelaciones de los Residuales*
+
+*Si Prob > 0.05 se rechaza Ho
+veclmar, mlag(4)
+
+*Prueba de normalidad de los errores*
+*Ho: Distribucion Normal
+*Si Prob > 0.05 se rechaza Ho
+vecnorm, j
+
+predict res1_mod2, r eq(#1)
+
+tsline res1_mod2
+
+hist res1_mod2, norm
+
+***********************MODELO 3 con 12 Rezagos**********************
+
+*Ho: El numero de ecuaciones de cointegracion es r* 
+*Ha: El numero de ecuaciones de cointegracion es r+1*
+*Se rechaza Ho Stadistico > Valor crítico*
+
+vecrank dlremesas dlpibmex dlpibeua dltcreal, lags(12) max ic levela
+
+*NOTA: La prueba de conintegracion de Johansen acepta Ho cuando rank = 1 al 1% y al 5%
+*NOTA: Max statistic se acepta Ho cuando rank = 1 al 1%*
+*NOTA: En los Criterios de Informacion señala 3 ecuaciones de cointegracion*
+
+*Modelo de Correción de Errores*
+
+vec dlremesas dlpibmex dlpibeua dltcreal, r(3) lags(12)
+
+*Multiplicador de Lagrange de Autocorrelaciones de los Residuales*
+
+*Si Prob > 0.05 se rechaza Ho
+veclmar, mlag(12)
+
+*Prueba de normalidad de los errores*
+*Ho: Distribucion Normal
+*Si Prob > 0.05 se rechaza Ho
+vecnorm, j
+
+predict res1_mod3, r eq(#1)
+
+tsline res1_mod3
+
+hist res1_mod3, norm
+
+*/////FUNCIONES DE IMPULSO RESPUESTA/////*
+
+irf create modelo1, set(imp_response4) step(12) replace
+
+irf graph irf, impulse(dlpibmex) response(dlremesas)
+irf graph irf, impulse(dlpibeua) response(dlremesas)
+irf graph irf, impulse(dltcreal) response(dlremesas)
+
+irf graph oirf, impulse(dlpibmex) response(dlremesas)
+irf graph oirf, impulse(dlpibeua) response(dlremesas)
+irf graph oirf, impulse(dltcreal) response(dlremesas)
+
+varbasic dlremesas dlpibmex dlpibeua dltcreal, lags(1/2) step (12)

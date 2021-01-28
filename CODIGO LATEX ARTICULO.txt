@@ -1,0 +1,363 @@
+\documentclass[12pt,english, spanish]{smfart}
+
+\usepackage[T1]{fontenc}
+\usepackage[english,spanish]{babel}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\graphicspath{ {./images/} }
+
+\usepackage{amssymb,url,xspace,smfthm}
+
+\title{Economic dynamics of remittances sent from the United States to Mexico between 1996 and 2019}
+\author{Luis Enrique Villarreal Gutierrez}
+
+\keywords{1. remittances, 2. cointegration analysis, 3. economic gowth.}
+
+\begin{document}
+\def\smfbyname{}
+
+\begin{abstract}
+Remittances and their study have been characterized in the analysis of the sending and receiving country, since there are economies that consider them as a fundamental pillar for economic growth. This document presents a cointegration analysis that establishes a long-term relationship between remittances, Mexico's GDP, United States GDP, and the real exchange rate.
+In addition to establishing that the series considered are cointegrated, the short-term impact of the sending and receiving countries of the remittances is analyzed.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+The analysis of time series has been a niche of multiple investigations over the years and when economic or financial variables are touched, upcoming events can be prevented to develop with different econometric tools. In this research, remittances are considered as fundamental variables to support the growth and / or financial stability of society.\par
+The income that Mexicans receive from remittances has increased greatly and \textit{“currently ranks together with Colombia as the leading countries in Latin America with positions one and two respectively”} (Hernandez, 2020). \par
+However, the year 2020 has been different in many areas, including remittances, since the health contingency has put into question the economic impact of said income and its destination within the Mexican economy, covering needs that were not previously known. they took into account.\par
+
+\subsection{Research question}
+\textit{What is the dynamic relationship between remittances sent from the United States to Mexico?} Specifically, \textit{have remittance income impacted Mexico's economic growth in a positive way?}
+
+\subsection{Relevance of the present study}
+The present research has as a contribution the extension of works carried out by different authors in a matter of data analysis, since twenty three years of records were taken. \par Similarly, it is intended to provide a more specific study on the importance of remittances in the economic growth of Mexico and the support they have in the national economy.
+
+\section{Literature review}
+In the first place, (Castillo, 2001) in his work entitled \textit{“Remittances: a cointegration analysis for the case of Mexico”} explains the elaboration of a:\par
+\textit{Cointegration analysis that establishes a long-term relationship between remittances and a series of exogenous variables, which include the GDP of the United States, the GDP of Mexico, and the real exchange rate. A simulation exercise is presented through which the impact that changes in the explanatory variables would have on remittances is evaluated.}\par
+In the author's work, remittances were analyzed with quarterly data from the period 1980-2000, comparing said variable with the others mentioned above and as a first interpretation he mentions that:\par
+\textit{When there is a devaluation of the peso, converting dollars to pesos becomes more expensive, which means that it is more expensive to maintain income in pesos than to maintain it in dollars. Thus, it is more profitable to retain resources in dollars to send them to Mexico and exchange them into pesos.}\par	
+The investigation concludes that:\par
+\textit{It is important to note that other factors that could have an impact on the amount of remittances were not considered. Specifically, there are social or demographic factors, such as population and poverty indexes, that necessarily influence the amount of family transfers received from the United States to Mexico.}\par	
+Secondly, (Gómez and Ramírez, 2014) in the work titled: \textit{“Economic dynamics of remittances sent from Spain and the United States to Colombia between 2005-2013: a cointegration analysis”} analyze the following:\par
+\textit{The purpose of this research is to analyze the behavior of remittances sent from Spain and the United States to Colombia in the last nine years, and specifically look for their long-term determinants. To achieve this, a validated cointegration analysis is implemented with an error correction method.}\par
+In this investigation, remittances from Colombia are analyzed with quarterly data from the first quarter of 2005 to the second quarter of 2013 and taken at constant 2005 prices through the local CPI \footnote{Price and Quotation Index.} . Second, to obtain the real exchange rate for both the dollar and the euro, the nominal exchange rate of currencies was multiplied by the relative CPIs of the sending and receiving country. The next variable is the unemployment rate that is presented for the 24 most important cities in Colombia according to DANE\footnote{Departamento Administrativo Nacional de Estadística.} .\par
+Lastly, the series for GDP and CPI for the United States and Spain at constant 2005 prices were obtained from the IMF\footnote{International Monetary Fund.}  and the number of emigrants was obtained from the Ministry of Employment and Social Security\footnote{In the case of Spain.}  and the Pew Hispanic Research Center\footnote{In the case of the United States of America.} . Similarly, the authors conclude the following:\par
+\textit{Regarding the fact that migrations are directly related to the sending of remittances, but it is surprisingly found in this study that the relationship is not very sensitive in both cases, especially in the North American case, which may indicate that not all emigrants send money to Colombia.}\par
+In third place, (Islas and Moreno, 2011) in his research titled: \textit{“Determinants of the flow of remittances in Mexico, an empirical analysis”} where they analyze the following:\par
+\textit{The macroeconomic variables that determine the flow of family remittances from the United States to Mexico. A hypothesis based on a broad revision of the theory on the flow of remittances is presented and an econometric exercise is carried out using Autoregressive Vectors with Error Correction\footnote{VARCE.}  to identify, from a synthetic perspective, the long-term determinants of family remittances that arrive in Mexico. The empirical analysis presents evidence that remittances are the consequence of an investment decision rather than altruism on the part of migrants. In addition, it was found that there is an inverse and significant relationship between the number of migrants and remittances, which could be an indicator that the stay of migrants in the United States is very long-term or permanent.}\par
+In the model used, they are shown on a quarterly basis from the first quarter of 1980 to the fourth quarter of 2008. In the first place, they were taken from family remittances that are calculated by BANXICO\footnote{Banco de México.} , which is based on periodic surveys and censuses. Second, the Gross Domestic Product of the United States was taken as it is an indicator of the economic activity of the host country.\par 
+The wages of the United States were also taken to determine the amount of income received by migrants. On the side of the country receiving the remittances, the Gross Domestic Product of Mexico and the Salary in Mexico were taken.\par 
+Finally, other variables were taken, such as the number of migrants, the differential of representative interest rates in Mexico and the United States, and finally: the real exchange rate. In this research the authors conclude that:\par
+\textit{It was found that the relationship between the stock of migrants and remittances is negative. This was not expected and is of great importance, since it could be indicating that migration to the United States is very long-term or permanent; the more migrants arrive in the labor-importing country, the less obligation there is to remit, but financial factors are important because the decision to stay in the host country for a long time is primarily motivated by investing in the country of origin to create an environment more stable economy upon return.}\par	
+In fourth place, (Arias and Muñoz, 2019) in his research work entitled: \textit{“Main macroeconomic determinants of imports in the CAN\footnote{Comunidad Andina de Naciones.}   countries”} analyzes the following:\par
+\textit{The purpose of this work is to identify the main macroeconomic determinants of imports given the negative trend that has occurred in the behavior of net exports in three of the four CAN countries, in addition to the relevance of imports within the national accounts of each country. The foregoing taking into account that the CAN is a subregional organization whose main purpose is to improve the standard of living and balanced development of the member countries through integration.}\par
+This research takes into account the great problem that exists about the union of several countries in a large community and that cultural, demographic, social and economic differences have a greater or lesser impact on decisions about the sending of labor to another country.\par 
+This impact is framed in the imports and exports of each country that makes up the CAN. The following is concluded in the investigation:\par
+\textit{The impact of the "lost decade" in Latin America should be highlighted, which was a period in which Latin American countries were not in a position to meet their debt commitments and incurred default; This had an effect on variables such as production, FDI, the exchange rate, and inflation.}	\par
+In fifth place, (Cruz and Salazar, 2013) in his work titled: \textit{“Remittances and economic growth: evidence for the Mexican economy”} studies the following:\par
+\textit{The growth rate of remittances that arrive in Mexico since the mid-1980s has been higher than that of exports and that of other external capital flows such as foreign and portfolio investment. Therefore, it is relevant to identify whether remittances have contributed to the growth of the Mexican economy. To answer this question, we estimate a consumption function that includes remittances.}\par
+In this analysis, four variables were used: private consumption (since, if remittances positively affect consumption, then this will also have a positive effect on economic growth), private investment\footnote{As proxy variable of income.} , the real exchange rate (given the relevance that has to modify the purchasing power of workers when it has significant variations) and remittances. The authors had the following conclusions:\par
+\textit{It is possible to argue that the insufficient economic growth in Mexico observed over three decades has not been greater due to the increasing and enormous flow of remittances received, particularly since the mid-1990s. This, of course, does not mean that expelling the labor force is a policy to be promoted or that there are no negative impacts associated with migration and remittances, especially in terms of economic development.}\par
+
+\section{Research proposal}
+The proposal to carry out the present analysis is based on the review of the literature presented in the previous section and on the methodology used in most of the articles. They were taken as candidates to establish the cointegration relationship of the present investigation to the GDP of Mexico, the GDP of the United States, the real exchange rate, and for obvious reasons to remittances. \par
+The data were collected on a quarterly basis from the first quarter of 1996 (1996: 1) to the fourth quarter of 2019 (2019: 4).\par	
+In turn, it is intended to perform a cointegration analysis applying the Johansen methodology and once a long-term relationship has been established between the variables, proceed to specify said relationship by means of an Error Correction Model.\par
+
+\section{Methodology}   
+
+\subsection{Presentation of the econometric model}
+
+\par The model to be generated in this research is based on Ramon A. Castillo's analysis of changes in the macroeconomic environment, where he applies the study of the determinants of remittances and the effects of the sending and receiving or receiving countries.\par
+
+\textbf{Vector Autoregressive Model (VAR).}\par
+The VAR or also called multivariate models originate in the eighties with (Sims, 1980), which raises \textit{"the importance of the dynamic relationships of economic phenomena at the macroeconomic level, subsistence of structural models, where there is a simultaneity between economic variables"}.\par
+VAR models have proven to be useful in empirical research analysis, when there is evidence of simultaneity between a group of variables, and that their relationships are transmitted over a given period. In addition, "that one of the advantages of these models is that, by not imposing any restriction on the structural version of the model, specification errors are not incurred that may cause empirical work." (Pérez, 2008). A VAR model captures the dynamic interactions of a set of K time series variables.\par
+
+\textbf{Error Correction Model (VEC).}\par
+VEC models, unlike VARs, are characterized by containing cointegrated variables, that is:\par
+\textit{“Variables that have a long-term equilibrium relationship between them, in which the analysis has been refined, since it includes both the dynamics of adjustment of the variables in the short term, when an unexpected shock occurs that causes another to temporarily move away of its long-term equilibrium relationship, such as the reestablishment of the equilibrium relationship in the long term, the information it provides on the speed of adjustment towards such equilibrium is quite useful; therefore they provide more information than VARs”} (Eilyn and Torres, 2004).\par
+If the variables are stationary, it is possible to proceed with the estimation of a VAR model. On the other hand, if the variables are stationary in difference and have a cointegration relationship, then a specification problem is generated in the VAR model, and a VEC must be continued.\par
+
+\textbf{Stationarity and order of integration.}\par
+•	The first step in the analysis of the time series is to verify its stationarity. A time series is said to be stationary if it meets the following characteristics.\par
+•	Its mean is constant over time.\par
+•	Its variance is also constant over time.\par
+
+ \begin{equation}
+ var(Y_{t} = E[(Y_{t}-u_{y})^2]=	\sigma^2
+ \end{equation}
+ 
+•	The covariance of order k is not related to time and the distance between the observations is the same.\par
+
+  \begin{equation}
+ \gamma_{k}=E[(Y_{t}-u_{y})(Y_{t+k}-u_{y})]
+ \end{equation}
+ 
+This is due to the fact that if a time series does not satisfy the previous characteristics, it is non-stationary. When we speak of an integrated time series, it is a non-stationary series, so the order of integration is the number of times the series has to be differentiated to reach stationarity.\par
+When it is not necessary to obtain first differences for the stochastic process to be called zero-order integrated. A non-stationary series, it is necessary to differentiate it so that it is, if it only differs once and stationarity is reached, it is integrated of order one. In general, the order of integration I(d) suggests the number of times they had to apply for the process to be considered stationary.\par
+An integrated process I(d) is known as a process that has a unit root, in which differentiation is used to make it stationary. In order to have a formal certainty to define the order of integration of a variable, statistical tests are used to detect the presence of a unit root, which proves the existence of a unit root, such as the Augmented Dickey Fuller and Phillips- Perron.\par
+
+
+\subsection{Econometric technique to use.}
+
+\textbf{Johansen Cointegration Test:}\par
+The peculiarity of this method is that it allows more than one cointegration relation in a system of variables. This test can be performed in two different approaches, with eigenvalues or with trace. When cointegration relationships are tested, the VEC model is estimated, the method of which is based on the Johansen methodology, and the steps to follow for said methodology are listed below.\par
+\begin{enumerate}
+\item Estimate a VAR in levels with the endogenous variables.
+\item The optimal number of lags is chosen in the estimation of the VAR. In this sense (Cuevas, 2010) asserts that \textit{“the length of the lag is decisive, because the behavior of the residuals and the empirical results are sensitive to the order of the model (number, of lags selected), as it can cause specification problems".} 
+\end{enumerate}
+\textbf{Information Criteria.}\par
+The most used criteria are:\par
+• \textbf{Akaike Information Criteria} (AIC):\par
+ \begin{equation}
+ AIC = Tln|S_{h}(p)|+2pn
+ \end{equation}
+• \textbf{Schwartz Information Criteria} (SIC):\par
+  \begin{equation}
+ SIC = Tln|S_{h}(p)|+(pn^2)lnT
+ \end{equation}
+• \textbf{Hannan-Quinn} (HQ):\par
+   \begin{equation}
+ HQ(n) = log\sigma^2_{u}(n)+\frac{2logT}{T}n
+ \end{equation}
+Where:\par
+p = number of lags\par
+n = number of equations\par
+T = number of observations\par
+\textbf{Diagnostic tests.}\par
+\begin{enumerate}
+\item Apply the tests to the residuals to the VAR model. After determining the optimal number of lags for the model, the next step is to run a series of diagnostic tests that determine that the model does not have statistical problems that invalidate the estimation results.\par
+\begin{enumerate}
+\item The autocorrelation in the residuals suggests that: \textit{“the model is a poor representation of the generated process and that some other representation can be found including variables, lags in the model, extending the time period or getting other data”} (Lutkepohl and Kratzig, 2004). The test most used to test autocorrelation is LM, whose null hypothesis (H0) to be tested is: no serial correlation in the lag of order p.\par
+\item. Another test that is essential to evaluate the diagnosis of the model is the absence of heteroscedasticity (non-constant variance) in the residuals. The hypotheses to be tested are\par 
+\begin{center}
+\textbf{H0}: The residuals are homoscedastic \par 
+\textbf{H1}: The residuals are heteroscedastic.\par
+\end{center}
+\item Another of the diagnostic tests for the verification of VAR processes refers to the normality of the waste, using the Jarque-Bera test. The hypotheses of this test are the following:\par
+
+\begin{equation}
+ H_{0} : E(u_{t}^s)^3 = 0 
+  \end{equation} 
+  \begin{equation}
+ H_{1} : E(u_{t}^s)^3 \neq 0
+ \end{equation} 
+
+The null hypothesis is rejected based on the value of the probability JB, given the level of significance with which one works, for example, with a significance level of 5 percent, the null hypothesis will not be rejected if the probability is higher than 0.05, therefore, there is a normal distribution in the residuals.\par
+\end{enumerate}
+\item At the selected VAR in levels, the cointegration test is applied (minus one to the optimal lag). The particularity of this method is that it allows more than one cointegration relationship in a system of variables. This test can be performed in two different approaches, with eigenvalues or with trace.\par
+\end{enumerate}
+
+\subsection{Description of the databases}
+The data to be used are focused on the period from January 1996 to December 2019 for the variables presented in the following section. In the same way, the dichotomous variables created for the structural changes that occurred over time are explained.\par
+First, the remittances sent are shown in their tiered series:\par
+
+ \includegraphics[width=10.00cm, height=6.84cm]{REMESAS EN NIVELES}
+
+As can be seen in the previous series, there is an accelerated rebound from the first quarter of 2003 until achieving a small stabilization, hence a decrease in the fourth quarter of 2009 to reach the acceleration that we have observed in recent years.  Second, the Gross Domestic Product of Mexico is shown in levels:\par
+
+  \includegraphics[width=10.00cm, height=6.84cm]{images/PIB MEXICO EN NIVELES.png}
+  
+	In the previous series, the upward trend can be observed from 1996 to 2009, where economic growth is affected by the world economic crisis of that year. The following is the Gross Domestic Product of the United States in levels:\par
+	
+   \includegraphics[width=10.00cm, height=6.84cm]{images/PIB ESTADOS UNIDOS EN NIVELES.png}
+   
+The trend is similar to that of Mexico's GDP, but in a smoother way, however, the structural change is noticeable due to the economic crisis of 2009.  Finally, it is shown at the Real Exchange Rate between the Mexican Peso (MXN) and the United States Dollar (USD) in levels:\par
+
+    \includegraphics[width=10.00cm, height=6.84cm]{images/TC REAL EN NIVELES.png}
+ 
+\subsection{Definition of the variables}
+In the first place, as the dependent variable, Family Remittances were chosen in their entirety from the first quarter of 1996 to the fourth quarter of 2019. Said database is measured in millions of dollars and was obtained from the Economic Information System of the Banco de México.\par
+Second, as an independent variable that represents the recipient country of remittance income, the Gross Domestic Product of Mexico was chosen. Said database is based on 2013 at constant prices and measured in millions of pesos. The data series was obtained from the Instituto Nacional de Estadística y Geografía.\par
+Third, as an independent variable that represents the country that issued the remittances, the Gross Domestic Product of the United States was chosen. It is measured in millions of dollars at constant prices. The series was obtained from the Bureau of Economic Analysis. Finally, the Real Exchange Rate Index was taken as the result of the quotient between the exchange rate variations and the Price and Quotation Index with respect to hundred eleven countries. This database was obtained from the Economic Information System of Banco de México.\par
+As mentioned in previous sections, the period ranges from the first quarter of 1996 to the fourth quarter of 2019\footnote{Accumulating a total of 96 observations for each variable.} . At the time of analyzing the data series, eight dichotomous variables were elaborated that were taken as exogenous to control the structural changes that occurred over time. \par
+In the case of Remittances, the following variables were elaborated:\par
+\begin{itemize}
+\item \textbf{DREMESASMI:} In the first quarter of 2003, as it was the quarter where the expansion of the domestic market in the country began and there was a decrease in inflation.\par
+\item \textbf{DREMESASREC:} In the fourth quarter of 2009 due to the global economic and financial recession that spanned from 2008 to 2009.\par
+
+ Within the Mexican GDP variable, the following variable was elaborated:\par
+ 
+\item	\textbf{DPIBMEXREC:} In the first quarter of 2009, due to the global economic and financial recession that spanned from 2008 to 2009.\par
+
+ Within the United States GDP variable, the following variable was elaborated:\par
+
+\item \textbf{DPIBEUAREC:} In the second quarter of 2009, due to the global economic and financial recession that spanned from 2008 to 2009.\par
+
+And within the Real Exchange Rate variable, the following variables were elaborated:\par
+
+\item \textbf{DTCREALIG:} In the second quarter of 2002, due to the increase in imports by farmers in the United States and the increase in prices.\par
+\item \textbf{DTCREALEST:} In the fourth quarter of 2004, since there was a slight stabilization from that year until 2007.\par
+\item \textbf{DTCREALFD:} In the fourth quarter of 2014 due to the strengthening of the US dollar and there was an impact on emerging markets.\par
+\item \textbf{DTCREALPP:} In the fourth quarter of 2016, due to the adjustment of oil prices.
+ \end{itemize}
+
+\section{Empirical analysis}
+In previous sections, the series were shown in levels and individually. The variables in their logarithmic transformations are shown below:\par
+
+  \includegraphics[width=11.00cm, height=7.84cm]{images/COMBINACION DE LAS VARIABLES EN LOG.png}
+ 
+As observed in the previous series, their seasonality is highlighted and with the help of dichotomous variables, the impact of this problem is reduced. The seasonally adjusted  
+series are shown below:\par
+
+   \includegraphics[width=11.00cm, height=7.84cm]{images/COMBINACION DE LAS VARIABLES EN LOG DESEST.png}
+   
+In these series, the Unit Root test was applied using the Dickey-Fuller method, in which the hypotheses are as follows:\par
+\begin{center}
+\textbf{H0} = Has unit root.
+\textbf{HA} = The series is stationary.
+\end{center}
+In the first place, the test was applied to Remittances, the results obtained \textbf{(-1.446)} refer to the fact that the test adding the trend is not rejected H0 \textbf{(-4.051 at 1 percent, -3.455 at 5 percent and -3.153 at 10 percent)} and the form of change in levels \textbf{(-1.826)} is not rejected H0 \textbf{(-2.367 at 1 percent, -1.661 at 5 percent and -1.291 at 10 percent)}. \par
+Second, the test was applied to Mexico's GDP where the results \textbf{(-3.656 in trend and -1,349 in change in levels)} do not reject H0 in its 1 percent trend form \textbf{(-4.051 at 1 percent, -3.455 at 5 percent and -3.153 at 10 percent)} and its change in levels at 5 percent \textbf{(-2.367 at 1percent, -1.661 at 5 percent and -1.291 at 10 percent)}.\par
+Third, the test was applied to the United States GDP where the results \textbf{(-2.914 in trend and -1.164 in change in levels)} do not reject H0 in its trending form \textbf{(-4.051 at 1 percent, -3.455 at 5 percent and -3.153 at 10 percent)} and in its change in levels \textbf{(-2.367 at 1 percent, -1.661 at 5 percent and -1.291 at 10 percent)}.\par 
+Finally, the test was performed at the Real Exchange Rate where the results \textbf{(-3.492 in trend and -2.701 in change in levels)} do not reject H0 in its form with a trend of 1 percent \textbf{(-4.051 at 1 percent, -3.455 at 5 percent and -3.153 at 10 percent)} and in its change in levels if it rejects H0 \textbf{(-2.367 at 1 percent, -1.661 at 5 percent and -1.291 at 10 percent)}.\par
+Since the series has structural changes, the Zivot and Andrews test is carried out considering the same hypotheses as the previous test. For Remittances in the first instance, the results for the form with change in the intercept and trend \textbf{(-4.783)} are not rejected H0 \textbf{(-5.57 at 1 percent, -5.08 at 5 percent and -4.82 at 10 percent)} and in the same way , in the way of minimizing lags \textbf{(-3.208)}, H0 is not rejected \textbf{(-5.34 at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent)}.\par
+Second, the test was performed on the Mexican GDP series where the results \textbf{(-4.250)} show that the test does not reject H0 with the change in the intercept and trend \textbf{(-5.57 at 1 percent, -5.08 at 5 percent and -4.82 at 10 percent)}, in the same way \textbf{(-4.689)} H0 at 5 percent is not rejected in its way of minimizing lags \textbf{(-5.34 at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent)}.\par
+Third, the test was performed on the US GDP series where the results \textbf{(-4.856)} show that the test does not reject H0 with the change in the intercept and trend to 5 percent \textbf{(-5.57 to 1 percent, -5.08 at 5 percent and -4.82 at 10 percent)}, but if it rejects \textbf{(-6.059)} H0 in its way of minimizing lags \textbf{(-5.34 at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent)}.\par
+Finally, the test was carried out on the Real Exchange Rate series where the results \textbf{(-4.003)} show that the test does not reject H0 with the change in the intercept and trend \textbf{(-5.57 at 1 percent, -5.08 at 5 percent and -4.82 at 10 percent)}, in the same way \textbf{(-3.672)} H0 is not rejected in its way of minimizing lags \textbf{(-5.34 at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent)}.\par
+In conclusion, it can be seen that the previous series in their seasonally adjusted form are non-stationary because they do not reject H0 in most cases. So we proceed to analyze the growth of each variable by differentiating them. The series in first differences are shown below:\par
+ 
+   \includegraphics[width=11.00cm, height=7.84cm]{images/COMBINACION DE LAS VARIABLES DIF.png}
+   
+Similarly, in each of the series, the Unit Root test was applied using the Dickey-Fuller and Zivot and Andrews method, however, the trend is not taken into account since it is not observed in the previous graphs, the hypotheses are the following:\par
+\begin{center}
+\textbf{H0} = Has unit root.\par
+\textbf{HA} = The series is stationary.
+\end{center}
+In the first place, the series of Remittances in first differences shows in the results \textbf{(-11.851 in the DF test and -5.274 in the ZA test)} that reject H0 in both tests \textbf{(-3.518 at 1 percent, -2.895 at 5 percent and - 2.582 at 10 percent in DF and -5.34 percent at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent in ZA)} affirming that said integrated series of order I is stationary.\par
+Secondly, the series of the Gross Domestic Product of Mexico in first differences shows in the results \textbf{(-23.585 in the DF test and -4.698 in the ZA test)} that rejects H0 in both tests \textbf{(-3.518 at 1 percent, -2.895 at 5 percent and -2.582 at 10 percent in DF and -5.34 percent at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent in ZA)} affirming that said integrated series of order I is stationary.\par
+Third, the series of the Gross Domestic Product of the United States in first differences shows in the results \textbf{(-5.997 in the DF test and -6,914 in the ZA test)} that reject H0 in both tests \textbf{(-3.518 at 1 percent, -2.895 at 5 percent and -2.582 at 10 percent in DF and -5.34 percent at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent in ZA)} affirming that said integrated series of order I is stationary.\par
+Finally, the series of the Real Exchange Rate in first differences shows in the results \textbf{(-8.578 in the DF test and -9.5 in the ZA test)} that reject H0 in both tests \textbf{(-3.518 at 1 percent, -2.895 at 5 percent and -2.582 at 10 percent in DF and -5.34 percent at 1 percent, -4.80 at 5 percent and -4.58 at 10 percent in ZA)} affirming that said integrated series of order I is stationary.\par
+In conclusion, in all integrated series of order I H0 is rejected and, therefore, they are stationary; so, a cointegration analysis will be carried out. In the first place, the optimal lags will be determined using a VAR model; in turn, the dichotomous variables that were mentioned in previous sections as exogenous variables are added.\par
+The results show that according to the Bayesian Information Criterion the order one \textbf{(-16.5164)} is determined, the Hannan-Quinn Criterion stipulates an order of four \textbf{(-17.9533)} and the Akaike Information Criterion determines the order twelve \textbf{(-19.4033)}; so we proceed to work with both equations.\par
+For the first equation with one lag, the number of cointegration equations is calculated using the \textit{“Johansen method”} (Morán, Bucybaruta, Rivera, 2013). According to the Information Criteria \textbf{(-17.11302 in SBIC and -17.41945 in HQIC)} it can be noted that there are three cointegration equations that will help us to create the Error Correction Model (VEC) by adding the lags of the equation that we are elaborating.\par
+In the second equation with four lags, the cointegration equations were calculated where the Information Criteria \textbf{(-17.0929 in SBIC and -18.19574 in HQIC)} indicate that there are three cointegration equations that will help us to develop the Error Correction Model.\par
+In the last equation with twelve lags, the cointegration equations were calculated where the Information Criteria \textbf{(-16.74103 in HQIC)} indicate that there are three cointegration equations that will help us to develop the Error Correction Model.
+After analyzing the previous results, we proceed to develop the impulse response analysis which will help us to know the growth in the short and long term according to the dependent variable and the independent variables. \par
+According to the results obtained, the impact of remittances on the economy that receives them is interesting, however, the behavior of the variables of the country that issued the remittances is strengthened or weakened depending on the currency of said country, the results they will be explained in the next section.\par
+
+\section{Conclusions}
+Remittances that enter Mexico have positioned themselves as a benchmark for the country's economic growth over the years, since migrants living in the United States have committed to supporting their families at all costs and supporting their quality of lifetime. With the passing of the years we can observe that records of remittances are broken from the northern country despite the economic complications that may occur.\par
+What is important in this research and with the support of the review of the literature presented above is the impact of the variables that depend on the sending and receiving economy of remittances. In the first place, analyzing the economic growth of the United States, it is clear that in the short term any increase in the United States economy positively affects the growth in remittances. This conclusion is based on the fact that there are more jobs and opportunities that are not available in Mexico.\par
+The other side of the coin shows us that any growth that the Mexican economy has has a faster impact on whether or not the decision to emigrate to the neighboring country is taken, since many people who live in the United States decide to stay working their entire lives. in said country and affirming that the economic conditions are different from those of Mexico.\par
+In addition to this, the exchange rate between the Mexican peso and the US dollar behaves in a similar way to the Mexican economy, and it is logical to think that if the dollar strengthens the decisions to continue working in the United States will be even more solid since it generates greater income for the people who receive it.\par
+In the long term, we can see that any positive change in the Mexican economy is caused by remittances, and that the exchange rate plays an important role in making decisions about emigrating to the United States in search of better wages and working conditions. \par Finally, it is worth mentioning that you have to work on the salary and employment policy that is being applied by the TMEC, since if they offer salaries and shifts similar to those of the neighboring country, the burden of migrants contributed by Mexico can be reduced.\par
+
+   \includegraphics[width=13.00cm, height=9.84cm]{images/COMBINACION DE LOS IRF.png}
+
+\def\refname{L\MakeLowercase{iterature and sources}}
+\begin{thebibliography}{99}
+%Nombramiento de la variable bibliografica
+\bibitem {apolitico20}
+%Nombre del autor
+  {\sc Animal Político.} ---
+  %Titulo de la obra en cursiva
+  {\it Aumenta 11 por ciento el envio de remesas en junio.}
+  %Resto de la cita y despues de la coma el año de publicación del documento
+  Obtained from https://www.animalpolitico.com/2020/08/aumenta-envio-remesas-junio-banxico/, August 03, 2020.
+
+\bibitem {marias19}
+  {\sc Arias \ M., Muñoz \ W.} ---
+  {\it Principales determinantes macroeconomicos de las importaciones en los paises de la CAN.}
+  Bogotá, Colombia, 2019.
+
+\bibitem {rcastillo01}
+  {\sc Castillo \ R.} ---
+  {\it Remesas: un análisis de cointegración para el caso de México.}
+  Frontera Norte, 31-50, 2001.
+  
+\bibitem {mcruz13}
+  {\sc Cruz \ M., Salazar \ C.} ---
+  {\it Remesas y crecimiento economico: evidencia para la economia mexicana.}
+  Investigaciones Economicas de la UNAM, 1-14, 2013.
+  
+  \bibitem {mcruz13}
+  {\sc Cruz \ M., Salazar \ C.} ---
+  {\it Remesas y crecimiento economico: evidencia para la economia mexicana.}
+  Investigaciones Economicas de la UNAM, 1-14, 2013.
+  
+  \bibitem {vcuevas10}
+  {\sc Cuevas \ V.} ---
+  {\it The dynamics of Mexican manufacturing exports.}
+  CEPAL Review, 151-171., 2010.
+  
+  \bibitem {economia10}
+  {\sc Economia.} ---
+  {\it Envío de remesas se derrumbó en 2009.}
+  Expansión, 5-7. Obtained from https://expansion.mx/economia/2010/01/27/remesas-a-mexico-con-caida-historica, 2010.
+  
+  \bibitem {wenders48}
+  {\sc Enders \ W.} ---
+  {\it Applied econometric time series.}
+  Alabama: Wiley, 1948.
+  
+  \bibitem {garciasf}
+  {\sc Garcia \ D.} ---
+  {\it Econometria II Grado en finanzas y contabilidad.}
+ Obtained from Procesos autorregresivos: http://www.est.uc3m.es, s.f.
+ 
+  \bibitem {agomez14}
+  {\sc Gómez \ A., Ramírez \ Z.} ---
+  {\it Dinámica económica de las remesas enviadas desde España y Estados Unidos a Colombia entre 2005-2013: un análisis de cointegración.}
+  Apuntes del CENES, 45-82, 2014.
+  
+  \bibitem {rgonzalez04}
+  {\sc González \ R.} ---
+  {\it Las remesas de EU mantienen el consumo interno en México.}
+  Obtained from https://www.jornada.com.mx, February 04, 2004.
+  
+  \bibitem {rgonzalez09}
+  {\sc González \ R.} ---
+  {\it Cayó 8.2 por ciento el PIB en enero-marzo, tercera baja más fuerte en un siglo.}
+  La Jornada, págs. 19-22. Obtained from https://www.jornada.com.mx/2009/05/21/economia/028n1eco, May 21, 2009.
+  
+  \bibitem {mhernandez20}
+  {\sc Hernández \ M.} ---
+  {\it Latinoamerica, la region en la que mas crece el flujo de remesas.}
+  Obtained from https://www.france24.com/es/20200223-latinoamerica-region-crece-remesas-estados-unidos-migracion, February 20, 2020.
+  
+  \bibitem {aislas11}
+  {\sc Islas \ A., Moreno \ S.} ---
+  {\it Determinantes del flujo de remesas en México, un análisis empírico.}
+  EconoQuantum, 9-36., 2011
+  
+  \bibitem {fkydland90}
+  {\sc Kydland \ F., Prescott \ R.} ---
+  {\it Business cycles: real facts and a monetary myth.}
+  Quarterly Review, 3-18., 1990
+  
+  \bibitem {klutkepohl04}
+  {\sc Lutkepohl \ K., Kratzig \ M.} ---
+  {\it Applied time series econometrics.}
+  Nueva York: Cambridge University Press., 2004
+  
+  \bibitem {ymoran13}
+  {\sc Morán \ Y., Bucybaruta \ G., Rivera \ D.} ---
+  {\it Cointegración.}
+  Obtained from Centro de Investigación de Matemáticas: https://www.cimat.mx, December 09, 2013.
+  
+  \bibitem {oim18}
+  {\sc Organización Internacional para la Migración.} ---
+  {\it ONU Migración.}
+  Obtained from Los flujos de las remesas pueden ser el sustento económico y social de las familias de los migrantes: https://www.iom.int, December 06, 2018.
+  
+  \bibitem {rdomingo16}
+  {\sc Redacción Domingo 7.} ---
+  {\it El Peso Mexicano Y Su Devaluación A Partir Del 2002, Fechas Cruciales.}
+  Domingo 7, 19-20., 2016.
+  
+  \bibitem {rstudiosf}
+  {\sc Rstudio.} ---
+  {\it RPubs.}
+  Obtained from Series de tiempo: estacionariedad: https://rpubs.com/Arthurus/492144, s.f.
+  
+\end{thebibliography}
+\end{document}
+
+
